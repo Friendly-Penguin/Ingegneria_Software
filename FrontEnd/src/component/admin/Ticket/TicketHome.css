@@ -1,0 +1,163 @@
+.ticket-wrapper-admin{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin-top: 10px;
+}
+
+.Title-ticket{
+  font-size: 40px;
+  margin-bottom: 10px;
+  width: auto;
+}
+
+.categories-Title{
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+
+.testata{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+}
+
+.categories-obj-testata-admin{
+  width: 150px;
+  height: 100px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  background-color:  transparent;
+  transform: scale(1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categories-obj-testata-admin:hover{
+  background-color: #f0f0f0;
+}
+
+.categories-obj-testata-admin.active {
+  background-color: #f0f0f0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Colore di sfondo quando selezionato */
+}
+
+
+.contenitore-admin{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.categories-Loading{
+  margin-top: 30px;
+}
+
+.categories-Title{
+    font-size: 20px;
+    font-weight: 380;
+}
+
+
+.categories-wrapper-admin{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.categories-obj-admin{
+    width: 180px;
+    height: 100px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    background-color:  transparent;
+    transform: scale(1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .categories-obj-admin:hover{
+    background-color: #f0f0f0;
+  }
+
+  .categories-obj-admin.active {
+    background-color: #f0f0f0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Colore di sfondo quando selezionato */
+  }
+  
+  .questions-wrapper-admin{
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: left;
+  }
+
+  .questiond-div{
+    width: 100%;
+  }
+
+  .question-div-info1{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .ticketDetails{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .question-div-info1 h2{
+    
+    font-size: 20px;
+    font-weight: 370;
+  }
+
+  .LinkT{
+    width: 5%;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.5s ease-in-out;
+    text-decoration: none;
+    
+  }
+
+  .LinkT:hover{
+    color: coral;
+  }
+
+  .icon-Update{
+    font-size: 20px;
+  }

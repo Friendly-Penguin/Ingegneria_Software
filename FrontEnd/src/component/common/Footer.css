@@ -1,0 +1,22 @@
+/* STYLING FOR FOOTER */
+html, body {
+  overflow: auto;
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Imposto l'altezza minima a 100% dell'altezza della finestra */
+}
+
+.footer {
+    color: #f0e8e8;
+    background-color: #444;
+    padding: 20px;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  /* END STYLING FOR FOOTER */
+  

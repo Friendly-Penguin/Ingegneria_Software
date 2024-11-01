@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+html, body {
+    overflow: auto;
+    height: 100%;
+}
+body {
+    min-height: 98vh;
+    color: #666666;
+    font-size: 1em;
+    margin:0 auto;
+
+    box-shadow:0 0 0 2px #222222;
+    background: rgb(10,53,116);
+    background: linear-gradient(rgb(46 30 137) 0%, rgba(86,33,177,1) 32%, rgba(130,6,160,1) 62%, rgba(25,0,255,1) 100%);
+}
+
+footer{
+    margin-top:10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: whitesmoke;
+    font-size: 18px;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    top:100%
+}
+
+footer a{
+    text-shadow: 2px 2px 2px black;
+    text-decoration: none;
+    color: #02b7ff;
+    outline: none;
+}

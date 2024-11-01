@@ -1,0 +1,198 @@
+main{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.account {
+    height: calc(100% - 195px);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.titoloAccount {
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+.superiore{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.superiore i{
+    color: white;
+    font-size: 20px;
+    text-shadow: 2px 2px 5px black;
+    margin-right: 5px;
+}
+.superiore h1{
+    color: white;
+    text-shadow: 2px 2px 5px black;
+    font-size: 20px;
+}
+.noTicket{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.noTicket h1{
+    text-shadow: 2px 2px 2px black;
+}
+
+.parte-superiore{
+    margin-top:20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.selezionaRew{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottoniTop{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.selezionaRew button{
+
+    width: 105px;
+    height: 35px;
+    background: #591fc1;
+    color: #fff;
+    border-radius: 20px;
+    outline: 0;
+    cursor: pointer;
+    border: 1px solid black;
+    transition: background 0.4s ease-in-out;
+}
+.selezionaRew button:hover{
+    background: #bd1daf;
+}
+
+#submit1{
+
+    cursor: pointer;
+    border: 1px solid black;
+    margin-left: 10px;
+}
+
+#submit1:hover{
+    background: #df115a;
+}
+.informazioni {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: flex;
+    border: 1px solid rgba(0,0,0, 40%);
+
+}
+.informazioni img{
+    margin: 5px;
+    width: 15vh;
+    border-radius: 10px;
+}
+
+.cont_all {
+    display: flex;
+}
+.divisore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    width: 70%;
+}
+
+.bottoni {
+    width: 10%;
+    height: 100%;
+    margin-left: 4%;
+}
+.scritte{
+    margin-left: 5px;
+    width: 100%;
+}
+
+.titolo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-shadow: 2px 2px 2px black;
+    justify-content: space-between;
+}
+
+.titolo h2{
+    font-size: 33px;
+}
+
+.cercaFilm{
+    margin-bottom: 15px;
+    color: whitesmoke;
+}
+.cercaFilm input{
+
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid whitesmoke;
+    background-color: transparent;
+    color: white;
+
+}
+
+.cercaFilm input:focus{
+    outline: none;
+}
+
+.cercaFilm input::placeholder{
+    color: white;
+}
+
+.recensione{
+    background-color: transparent;
+    color: white;
+}
+
+
+.bidone{
+    margin-right: 10px;
+    cursor: pointer;
+    color: red;
+    font-size: 20px;
+}
+
+.noTicket{
+    text-shadow: 2px 2px 2px black;
+    padding: 15px;
+}
+
+
+
+.titolo a{
+    background-color: rgba(0, 0, 0, 40%);
+    border-radius: 20px;
+    width: 20%;
+}

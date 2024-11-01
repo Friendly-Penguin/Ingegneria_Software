@@ -1,0 +1,18 @@
+.account {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.titoloAccount {
+    width: 100%;
+    height: 10%;
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+.titoloAccount h2{
+    font-size: 20px;
+
+}

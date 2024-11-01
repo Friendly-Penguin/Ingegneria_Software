@@ -1,0 +1,143 @@
+/* STYLING NEW ADMIN PAGE */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  .login-container-admin{
+    display: flex;
+    justify-content: center;
+    height: 550px;
+    width: 100%;
+  }
+  
+  .wrapper-admin{
+    margin-top: 30px;
+    width: 420px;
+    background: whitesmoke;
+    border: 2px solid rgb(24 24 24 / 32%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(30px);
+    color: #000000;
+    border-radius: 10px;
+    padding: 30px 40px;
+    margin-bottom: 10px;
+  }
+  
+  .wrapper-admin .testata{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+  }
+  
+  .wrapper-admin .testata h1{
+    font-size: 36px;
+    text-align: center;
+    width: 100%;
+  }
+
+  
+  .wrapper-admin .input-box-admin{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+  }
+  
+  .input-box-admin input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    padding: 20px 45px 20px 20px;
+  }
+  
+  .input-box-admin input::placeholder{
+    color: rgb(0, 0, 0);
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .input-box-admin .icon-admin{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+  }
+  
+  .wrapper-admin button{
+    width: 100%;
+    height: 45px;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 700;
+    transition: background-color 0.2s ease-in;
+  }
+  
+  .wrapper-admin button:enabled {
+    background: #fff; /* Colore del bottone abilitato */
+    color: #333;        /* Colore del testo del bottone abilitato */
+    cursor: pointer;      /* Cambia il cursore quando il bottone è abilitato */
+    opacity: 1;            
+  }
+  
+  .wrapper-admin button:hover {
+    background-color: rgba(203, 208, 212, 0.836);             
+  }
+  
+  .wrapper-admin button:disabled {
+    background-color: #cccccc; /* Colore del bottone disabilitato */
+    color: #666666;           /* Colore del testo del bottone disabilitato */
+    cursor: not-allowed;      /* Cambia il cursore quando il bottone è disabilitato */
+    opacity: 0.6;             /* Riduce l'opacità del bottone disabilitato */
+  }
+  
+  .wrapper-admin .error{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(168, 7, 7);
+  }
+  
+  .wrapper-admin .confirm{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(7, 168, 7);
+  }
+  
+  
+  .wrapper-admin .register-link{
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+  }
+  
+  .register-link p a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .register-link p a:hover{
+    text-decoration: underline;
+  }
+  
+  /* END STYLING FOR NEW ADMIN PAGE */

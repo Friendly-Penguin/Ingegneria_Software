@@ -1,0 +1,101 @@
+/* SETTINGS FOR NAVBAR */
+.navContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.navbar{
+  width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    height: calc(15% - 35px);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+.navbar .navObj {
+  width: 200px;
+  text-align: center;
+}
+.navbar img{
+  float: left;
+  width: 200px;
+  align-items: center;
+  justify-items: center;
+}
+
+.navbar .last-section{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+.navbar a{
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease-in;
+
+}
+
+.navbar a:hover{
+  color: var(--link);
+}
+
+.navbar .logout{
+  font-size: 25px;
+  font-weight: 600;
+  color: black;
+  transition: color 0.2s ease-in;
+}
+.navbar .logout:hover{
+  color: var(--link);
+  cursor: pointer;
+}
+
+
+/* SEZIONE ADMIN */
+
+
+.adminNav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  background-color: gainsboro;
+  width: 100%;
+  padding: 10px 0px;
+}
+
+.adminNav a{
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.adminNav a:hover{
+  color: var(--link);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.adminNav .separator {
+  margin: 0 10px;
+  color: #444343; /* Colore della barra */
+  font-size: 20px; /* Dimensione della barra */
+}
+
+
+
+
+/* END STYLING FOR NAVBAR */

@@ -1,0 +1,156 @@
+.category-wrapper{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    justify-items: center;
+}
+
+.contenitoreTotale{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    background: whitesmoke;
+    border: 2px solid rgb(24 24 24 / 32%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+
+.category-section{
+    width: 80%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: space-around;
+   
+}
+
+.left-section{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+
+}
+
+.categories-list{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.Categories-obj{
+    width: 140px;
+    height: 50px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    background-color: transparent;
+    transform: scale(1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.Categories-obj button{
+    outline: none;
+    border: none;
+    float: right;
+    height: 10%;
+    margin-bottom: 10px;
+    display: flex;
+    margin-top: 2px;
+    margin-left: calc( 100% - 20%);
+    color: red;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Categories-obj button:hover{
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.2);
+}
+
+.Categories-obj span{
+    height: 90%;
+    cursor: unset;
+}
+
+.right-section{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+
+.new-Category-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.new-Category-form h2{
+    display: flex;
+    justify-content: center;
+}
+
+.new-Category-form input{
+    width: 60%;
+    font-size: 17px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.FormbuttonAddCat{
+    width: 150px;
+    font-size: 15px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.FormbuttonAddCat:hover{
+    background-color: rgb(50, 194, 31);
+}
+
+
+.testiErrore{
+    margin-bottom: 10px;
+}
+
+.success-message{
+    color: green;
+    font-size: 20px;
+}
+
+.error-message{
+    color: darkred;
+    font-size: 20px;
+}

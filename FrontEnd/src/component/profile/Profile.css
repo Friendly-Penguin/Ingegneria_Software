@@ -1,0 +1,141 @@
+.contenitore{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.infoTitle{
+    width: auto;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.profile-info{
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color:  transparent;
+    transform: scale(1);
+}
+
+.details-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: baseline;
+}
+
+.profile-info h1{
+    font-size: 25px;
+    margin-right: 5px;
+}
+
+.profile-info h2{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.contenitore hr{
+    width: 20%;
+    border: 1px solid rgb(6 6 6);
+    margin: 10px 0px;
+}
+
+.sectionTitle{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.divTitle{
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #00000029;
+    transform: scale(1);
+    padding: 10px 0px;
+}
+
+#title1{
+    cursor: pointer;
+    font-size: 20px;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.icon{
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 20px;
+    transition: transform 0.7s ease;
+
+}
+
+.icon.rotate {
+    transform: rotate(180deg);
+}
+
+
+.divQuestion{
+    overflow-y: hidden;
+    width: 50%;
+    max-height: 80px;
+    transition: 1.5s linear;
+}
+
+.divQuestion.expanded {
+    max-height: 500px; /* Imposta un limite massimo adeguato per il contenuto. Può essere aumentato se il contenuto è più lungo */
+    background-color: #e0e0e0;
+    border: 1px solid #bbb;
+    padding: 10px;
+}
+
+.questionTitle{
+    font-size: 20px;
+    font-weight: 500;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.questionTitle:hover{
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.questionTitle1{
+    font-size: 20px;
+    font-weight: 500;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.question-details{
+    width: 90%;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    font-size: 15px;
+    font-weight: 450;
+    margin-left: 10px;
+}
+
+#2divisorio{
+    width: 20%;
+    border: 1px solid rgba(255, 255, 255, 0);
+    margin: 10px 0px;
+}

@@ -1,0 +1,84 @@
+.contenitore{
+    display: flex;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.4);
+    flex-direction: column;
+    text-align: center;
+    border-radius: 5%;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+}
+#testo{
+    margin-top: 10px;
+}
+.abbonamento{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.abbonamento h1{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.abbonamento p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.abbonamento button{
+    width: 120px;
+    height: 40px;
+    background: #591fc1;
+    color: #fff;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.abbonamento button:hover{
+    background: forestgreen;
+    transition: background 0.4s;
+    color: #fff;
+}
+.abbonamento img{
+    width: 50%;
+}
+
+#formAbbonamento{
+    display: flex;
+    width: 100%;
+}
+.bigliettiInfo h1{
+    font-weight: bold;
+}
+.bigliettiInfo h2{
+    margin-top: 10px;
+
+}
+
+.bigliettiInfo img{
+    width: 20%;
+}
+
+#formPrenota button{
+    width: 120px;
+    height: 40px;
+    background: #591fc1;
+    color: #fff;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#formPrenota button:hover{
+    background: forestgreen;
+    transition: background 0.4s;
+    color: #fff;
+}

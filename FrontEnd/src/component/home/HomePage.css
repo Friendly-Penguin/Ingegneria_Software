@@ -1,0 +1,136 @@
+/* STYLING FOR HOMEPAGE */
+.content{
+    background-color: #fafafa;
+    height: 75%;
+    flex-grow: 1; 
+  }
+  
+  .home{
+    margin: 10px 10px 10px 10px;
+    width: 60%;
+  }
+  
+  .home .introduzione{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  .faq-title {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 5px;
+    font-size: 2rem;
+  }
+  
+  .h2Title{
+    margin-bottom: 5px;
+  }
+  
+  .introduzione img{
+    width: 25%;
+  }
+  
+  .add-wrapper{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .add-wrapper h1{
+    font-size: 20px;
+  }
+  .add-wrapper button{
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    transition: color 0.2s ease-in;
+    font-size: 25px;
+    font-weight: 150;
+    text-decoration: underline;
+    vertical-align: bottom;
+  }
+  
+  .add-wrapper button:hover{
+    color: var(--link);
+  }
+  
+  .contenitore{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .categories-wrapper{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .categories-obj{
+    width: 200px;
+    height: 150px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    background-color:  transparent;
+    transform: scale(1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .categories-obj:hover{
+    background-color: #f0f0f0;
+  }
+
+  .categories-obj.active {
+    background-color: #f0f0f0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Colore di sfondo quando selezionato */
+  }
+  
+  .questions-wrapper{
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: left;
+  }
+
+  /* Casella di ricerca */
+  .search-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .search-input:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* END STYLING FOR HOMEPAGE */
