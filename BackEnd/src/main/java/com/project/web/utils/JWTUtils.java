@@ -16,8 +16,8 @@ import java.util.function.Function;
 @Service
 public class JWTUtils {
 
-    //Setto un expiration time per il token di 1 giorno
-    private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 24;
+    //Setto un expiration time per il token di 1 ora
+    private static final long EXPIRATION_TIME = 1000 * 60 * 60 ;
 
     private final SecretKey key;
 

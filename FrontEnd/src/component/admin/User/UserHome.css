@@ -1,0 +1,109 @@
+.user-wrapper{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    justify-items: center;
+}
+
+.testata-User{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  
+}
+
+
+.categories-obj-USER{
+    width: 150px;
+    height: 100px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    background-color:  transparent;
+    transform: scale(1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .categories-obj-USER:hover{
+    background-color: #f0f0f0;
+  }
+  
+  .categories-obj-USER.active {
+    background-color: #f0f0f0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Colore di sfondo quando selezionato */
+  }
+
+
+  .utentiBase-wrapper{
+    width: 80%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .UserTotale{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .User-Info{
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .UserIcon{
+    width: 5%;
+    height: 40px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    justify-items: baseline;
+  }
+
+  .User-Details{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .UserButton{
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .UserButton h1{
+   font-size: 20px;
+   font-weight: 350;
+  }
+
+  .IconDeleteUS{
+    font-size: 20px;
+  }
+
+  .UserButton:hover{
+    transform: scale(1.1);
+    color: red;
+  }

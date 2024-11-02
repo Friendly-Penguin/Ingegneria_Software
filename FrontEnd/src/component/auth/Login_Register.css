@@ -26,26 +26,26 @@
   padding: 30px 40px;
 }
 
-.wrapper .testata{
+.wrapper .testataLogin{
   display: flex;
   align-items: center;
   width: 100%;
   
 }
 
-.wrapper .testata h1{
+.wrapper .testataLogin h1{
   font-size: 36px;
   text-align: center;
   margin-left: calc(50% - 17.5% - 8%);
   width: 35%;
 }
 
-.wrapper .testata .H1_title{
+.wrapper .testataLogin .H1_title{
   margin-left: calc(50% - 25% - 8%);
   width: 50%;
 }
 
-.wrapper .testata a{
+.wrapper .testataLogin a{
   font-size: 25px;
   color: #fff;
   text-decoration: none;

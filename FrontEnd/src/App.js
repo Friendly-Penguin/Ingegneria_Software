@@ -27,7 +27,8 @@ import QuestionUpdate from './component/admin/Question/QuestionUpdate';
 import AddQuestion from './component/admin/Question/AddQuestion';
   //GESTIONE CATEGORIE
 import ViewCat from './component/admin/Category/ViewCat';
-
+  //GESTIONE UTENTI
+import UserHome from './component/admin/User/UserHome';
 
 
 
@@ -84,6 +85,7 @@ function App() {
 
           <Route path='/viewCat' element={ <AdminRoute element={<ViewCat/>} /> } />
           
+          <Route path='/allUser' element={ <AdminRoute element={<UserHome/>} /> } />
           
           </Routes>
 

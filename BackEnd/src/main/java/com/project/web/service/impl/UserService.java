@@ -9,16 +9,23 @@ import com.project.web.repo.UserRep;
 import com.project.web.service.interfac.IUserService;
 import com.project.web.utils.JWTUtils;
 import com.project.web.utils.Utils;
+import jakarta.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class UserService implements IUserService {
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Autowired
     private UserRep userRep;
@@ -80,7 +87,7 @@ public class UserService implements IUserService {
             response.setToken(token);
             response.setRole(user.getRole());
             response.setUserID(user.getId());
-            response.setExpirationTime("1 Days");
+            response.setExpirationTime("1 Hour");
             response.setMessage("successfull");
 
         }catch (CustomExcept ex){
@@ -178,7 +185,6 @@ public class UserService implements IUserService {
         Response response = new Response();
 
         try{
-
             User user = userRep.findByEmail(email).orElseThrow(() -> new CustomExcept("User not Found"));
             UserDTO userDTO = Utils.mapUserEntityToUserDTO(user);
             response.setStatusCode(200);
@@ -199,4 +205,13 @@ public class UserService implements IUserService {
         return response;
     }
 
+    @Override
+    @Transactional
+    public void updateUserLastLogin(Long userID, LocalDateTime lastLogin) {
+        User user = userRep.findById(Long.valueOf(userID))
+                .orElseThrow(() -> new CustomExcept("User not Found"));
+        user.setLastLogin(lastLogin);
+        userRep.save(user); // Salva il cambiamento, gestito automaticamente
+        System.out.println("User last login updated.");
+    }
 }

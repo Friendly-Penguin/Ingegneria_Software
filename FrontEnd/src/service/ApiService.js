@@ -78,7 +78,7 @@ export default class ApiService{
 
     /* This is used to retrive all the QUESTION */
     static async getAllQuestion(){
-        const response = await axios.get(`/question/all`, {headers: this.getHeader()})
+        const response = await axios.get(`/question/all`)
         return response.data
     }
 
@@ -165,6 +165,7 @@ export default class ApiService{
     static logout() {
         localStorage.removeItem('token')
         localStorage.removeItem('role')
+        localStorage.removeItem('userID')
     }
 
     static isAuthenticated() {

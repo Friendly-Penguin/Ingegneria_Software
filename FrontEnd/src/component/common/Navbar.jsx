@@ -17,7 +17,7 @@ function Navbar(){
         const isLogout = window.confirm("Vuoi davvero uscire?");
         if(isLogout){
             ApiService.logout();
-            navigate('/FAQ');
+            navigate('/');
         }
     }
 

@@ -98,7 +98,7 @@ function RegisterPage(){
         <div className="wrapper">
         
         <form onSubmit={handleSubmit}>
-             <div className="testata">
+             <div className="testataLogin">
              <a href="/FAQ"> <FaArrowLeft className="icon"/></a>
                  <h1 className="H1_title">Registrati</h1>
              </div>

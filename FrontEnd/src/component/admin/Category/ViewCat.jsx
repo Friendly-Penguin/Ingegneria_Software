@@ -64,7 +64,7 @@ function ViewCat(){
     // Funzione per rimuovere una categoria
     const handleRemoveCategory = async (categoryID, categoryName) => {
         
-        const response = window.confirm(`Sei sicuro di voler rimuovere la categoria la categoria: ${categoryName}?`);
+        const response = window.confirm(`Sei sicuro di voler rimuovere la categoria: ${categoryName}?`);
         
         if(response){
             try {

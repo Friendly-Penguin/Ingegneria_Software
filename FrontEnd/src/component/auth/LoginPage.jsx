@@ -53,7 +53,7 @@ function LoginPage(){
 
         <div className="login-container">
            <div className="wrapper">
-                <div className="testata">
+                <div className="testataLogin">
                     <a href="/FAQ"> <FaArrowLeft /></a>
                         <h1>Accedi</h1>
                 </div>
