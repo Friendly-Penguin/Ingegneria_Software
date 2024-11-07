@@ -3,6 +3,19 @@ package com.project.web.security;
 //Sarà la prima linea di "sicurezza" con la quale le chiamate
 //dovranno interfacciarsi
 
+/**
+ * This method intercepts incoming HTTP requests to extract and validate a JWT token from the "Authorization" header.
+ * If the token is valid, it authenticates the user and sets the authentication context in Spring Security.
+ * The process includes:
+ * 1. Extracting the JWT token from the request header.
+ * 2. Validating the token and extracting the username (email).
+ * 3. Loading user details if no authentication context is found.
+ * 4. Creating and setting the authentication token in the security context.
+ * 5. Allowing the request to continue through the filter chain with the established authentication.
+ *
+ * This enables stateless authentication based on the JWT, ensuring that only valid requests are processed.
+ */
+
 import com.project.web.service.CustomUserDetailsService;
 import com.project.web.utils.JWTUtils;
 import jakarta.servlet.FilterChain;

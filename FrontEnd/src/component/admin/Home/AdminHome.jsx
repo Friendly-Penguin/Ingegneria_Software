@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./AdminHome.css";
 
 function AdminHome() {
+  document.title = "Admin";
   // State per data e ora
   const [dateTime, setDateTime] = useState(new Date());
 

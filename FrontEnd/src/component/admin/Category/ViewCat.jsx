@@ -3,7 +3,7 @@ import ApiService from "../../../service/ApiService";
 import './ViewCat.css';
 
 function ViewCat(){
-
+    document.title = "Sezione Categorie";
     const [categories, setCategories] = useState([]);
     const [newCategory, setNewCategory] = useState("");
 
@@ -26,6 +26,18 @@ function ViewCat(){
     useEffect(() => {
         fetchCategories();
     }, []);
+
+
+    // Funzione di sanificazione dell'input per CATEGORY
+    const sanitizeInput2 = (input) => {
+        return input.replace(/[^a-zA-Z\s]/g, "");
+    };
+
+    // Aggiorna newCategory con testo sanificato
+    const handleCategoryChange = (e) => {
+        const sanitizedCategory = sanitizeInput2(e.target.value.toUpperCase());
+        setNewCategory(sanitizedCategory);
+    };
 
 
     // Gestisce l'invio della nuova categoria
@@ -59,6 +71,8 @@ function ViewCat(){
 
 
     };
+
+    
 
 
     // Funzione per rimuovere una categoria
@@ -116,7 +130,7 @@ function ViewCat(){
                                 <input 
                                     type="text" 
                                     value={newCategory} 
-                                    onChange={(e) => setNewCategory(e.target.value.toUpperCase())} 
+                                    onChange={handleCategoryChange} 
                                     placeholder="Nome nuova categoria"
                                     maxLength="25"
                                     required />

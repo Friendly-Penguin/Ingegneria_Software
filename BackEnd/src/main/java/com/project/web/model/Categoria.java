@@ -20,8 +20,7 @@ public class Categoria {
     private Long id;
 
     @NotBlank(message = "Category required")
-    @Size(max = 25, message = "Max 300 characters")
-
+    @Size(max = 25, message = "Max 25 characters")
     private String type;
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

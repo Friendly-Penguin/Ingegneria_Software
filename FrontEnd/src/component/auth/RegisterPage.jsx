@@ -89,7 +89,7 @@ function RegisterPage(){
         }
     };
 
-
+    document.title = "Registrati";
 
     return(
 

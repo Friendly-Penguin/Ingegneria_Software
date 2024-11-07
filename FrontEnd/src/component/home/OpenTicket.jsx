@@ -7,7 +7,7 @@ const OpenTicket = () => {
     const location = useLocation();
     const navigate = useNavigate();
     
-    
+    document.title = "Apri Ticket";
     
     // Stati per memorizzare le categorie e i dati del form
     const [categories, setCategories] = useState([]);
@@ -28,6 +28,18 @@ const OpenTicket = () => {
     useEffect(() => {
         fetchCategories();
     }, []);
+
+    // Funzione di filtro per accettare solo caratteri sicuri
+    const sanitizeInput = (input) => {
+        // Permette solo caratteri alfanumerici, spazi, punti, virgole, e punti esclamativi e interrogativi
+        return input.replace(/[^a-zA-Z0-9\s.,!'/?àèìòùéÀÈÌÒÙÉ]/g, "");
+    };
+
+    // Aggiorna il titolo filtrato
+    const handleTitleChange = (e) => {
+        const sanitizedTitle = sanitizeInput(e.target.value);
+        setTitle(sanitizedTitle);
+    };
 
     // Funzione per gestire il submit del form
     const handleSubmit = async (e) => {
@@ -57,6 +69,7 @@ const OpenTicket = () => {
 
     return (
         <div className="add-question-wrapper">
+            
             <h2>Apri un TICKET</h2>
             <form onSubmit={handleSubmit} className="form">
                 <label htmlFor="title">Descrivi brevemente il tuo problema:</label>
@@ -64,14 +77,13 @@ const OpenTicket = () => {
                     <textarea 
                         className="title-textarea"
                         value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        onChange={handleTitleChange} // Usa la funzione di sanificazione
                         placeholder="Scrivi qui..."
                         maxLength="300"
                     />
                     <span style={{  fontSize: '12px', color: '#888' }}>
                         {title.length} / 300 caratteri
                     </span>
-               
                 </div>
                 <label htmlFor="category">Seleziona la categoria:</label>
                 <select 

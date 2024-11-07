@@ -17,7 +17,7 @@ public class TicketController {
     private ITicketService ticketService;
 
 
-    /* APRIRE UN NUOVO TICKET*/
+    /* Usato per creare un nuovo TICKET*/
     @PostMapping("/open")
     public ResponseEntity<Response> openTicket(@RequestParam(value = "title", required = false)String title,
                                                @RequestParam(value = "userID", required = false) Long userID,
@@ -60,7 +60,8 @@ public class TicketController {
     }
 
 
-    @PostMapping ("/update/{ticketID}")
+    /* Usato per aggiornare un TICKET*/
+    @PutMapping("/update/{ticketID}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Response> updateTicket(@PathVariable Long ticketID,
                                                  @RequestParam(value = "category", required = false)Long category,
@@ -70,7 +71,7 @@ public class TicketController {
 
             Response response = new Response();
             response.setStatusCode(400);
-            response.setMessage("Please provide a title for the ticket!");
+            response.setMessage("Please provide an answer for the ticket!");
             return ResponseEntity.status(response.getStatusCode()).body(response);
 
         } else if (category < 0 || category == null) {
@@ -97,13 +98,15 @@ public class TicketController {
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
-    @PostMapping("/getAllAnswered")
+    /* Usato per recuperare tutti i TICKET con Risposta */
+    @GetMapping("/getAllAnswered")
     @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Response> getAllAnsweredTicket(){
         Response response = ticketService.getAllAnsweredTicket();
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
+    /* Usato per recuperare tutti i TICKET senza Risposta */
     @PostMapping("/getAllNotAnswered")
     @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Response> getAllNotAnsweredTicket(){
@@ -111,17 +114,29 @@ public class TicketController {
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
-
+    /* Usato per recuperare tutti i TICKET di uno specifico utente */
     @GetMapping("/getUser/{userID}")
     public ResponseEntity<Response> getUserTicket(@PathVariable Long userID){
         Response response = ticketService.getUserTicket(userID);
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
+
+    /* Usato per recuperare un TICKET specifico tramite il suo ID*/
     @GetMapping("/get/{ticketID}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Response> getTicketByID(@PathVariable Long ticketID){
         Response response =  ticketService.getTicketByID(ticketID);
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
+
+    /* Usato per cancellare un TICKET tramite il suo ID */
+    @DeleteMapping("/delete-{ticketID}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<Response> deleteTicket(@PathVariable Long ticketID){
+        Response response = ticketService.deleteTicket(ticketID);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
+    }
+
+
 }

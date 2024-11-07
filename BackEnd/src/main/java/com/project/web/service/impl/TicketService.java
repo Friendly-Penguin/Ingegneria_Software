@@ -125,7 +125,7 @@ public class TicketService implements ITicketService {
 
         try {
 
-            Ticket ticket = ticketRepo.findById(ticketID).orElseThrow(() -> new CustomExcept("Question not found"));
+            Ticket ticket = ticketRepo.findById(ticketID).orElseThrow(() -> new CustomExcept("Ticket not found"));
 
 
             Categoria categoria = new Categoria();
@@ -170,6 +170,33 @@ public class TicketService implements ITicketService {
             response.setStatusCode(500);
             response.setMessage("Error retriving answered Question " + e.getMessage());
         }
+
+        return response;
+    }
+
+    @Override
+    public Response deleteTicket(Long ticketID){
+
+        Response response = new Response();
+
+        try{
+
+            ticketRepo.findById(Long.valueOf(ticketID)).orElseThrow(() -> new CustomExcept("Ticket not Found"));
+            ticketRepo.deleteById(Long.valueOf(ticketID));
+            response.setStatusCode(200);
+            response.setMessage("Success");
+
+        }catch (CustomExcept ex){
+
+            response.setStatusCode(404);
+            response.setMessage(ex.getMessage());
+
+        }catch (Exception e){
+
+            response.setStatusCode(500);
+            response.setMessage("Error in Ticket deleting: " + e.getMessage());
+        }
+
 
         return response;
     }

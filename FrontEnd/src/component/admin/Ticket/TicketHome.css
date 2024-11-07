@@ -158,6 +158,10 @@
     color: coral;
   }
 
+  .pencil{
+    width: 50%;
+  }
+
   .icon-Update{
     font-size: 20px;
   }

@@ -29,6 +29,8 @@ export default class ApiService{
         return response.data
     }
 
+
+
 /* USER */
 
     /* This is used to retrive all the USER PROFILE */
@@ -49,14 +51,17 @@ export default class ApiService{
         return response.data
     }
 
-
-   
+    /* This is used to retrive the ticketCount of a user */
+    static async getTicketCount(userID){
+        const response = await axios.get(`/user/ticketCount-${userID}`)
+        return response.data
+    }
 
 /* QUESTION */
 
     /* This is used to update a QUESTION */
     static async updateQuestion( questionID, formData ){
-        const result = await axios.post(`/question/update/${questionID}`, formData, {
+        const result = await axios.put(`/question/update/${questionID}`, formData, {
             headers: {
                 ...this.getHeader(),
                 'Content-Type': 'multipart/form-data'
@@ -84,7 +89,7 @@ export default class ApiService{
 
     /* This is used to delete a QUESTION */
     static async deleteQuestion(questionID){
-        const response = await axios.get(`/question/delete/${questionID}`,{headers: this.getHeader()})
+        const response = await axios.delete(`/question/delete/${questionID}`,{headers: this.getHeader()})
         return response.data
     }
 
@@ -105,7 +110,7 @@ export default class ApiService{
    
     /* This is used to update a TICKET */
     static async updateTicket(id,formData){
-        const response = await axios.post(`/ticket/update/${id}`, formData, {
+        const response = await axios.put(`/ticket/update/${id}`, formData, {
             headers: {
                 ...this.getHeader(),
                 'Content-Type': 'multipart/form-data'
@@ -116,13 +121,13 @@ export default class ApiService{
 
     /* This is used to retrive all the TICKET with an answer */
     static async getAllYTicket(){
-        const response = await axios.post(`/ticket/getAllAnswered`,null, {headers: this.getHeader()})
+        const response = await axios.get(`/ticket/getAllAnswered`, {headers: this.getHeader()})
         return response.data
     }
 
     /* This is used to retrive all the TICKET without an answer */
     static async getAllNTicket(){
-        const response = await axios.post(`/ticket/getAllNotAnswered`,null, {headers: this.getHeader()})
+        const response = await axios.get(`/ticket/getAllNotAnswered`, {headers: this.getHeader()})
         return response.data
     }
 
@@ -135,6 +140,12 @@ export default class ApiService{
     /* This is used to retrive a specific TICKET */
     static async retriveTicket(ticketID){
         const response = await axios.get(`/ticket/get/${ticketID}`, {headers: this.getHeader()} )
+        return response.data
+    }
+
+    /* This is used to delete a TICKET */
+    static async deleteTicket(ticketID){
+        const response = await axios.delete(`/ticket/delete-${ticketID}`, {headers: this.getHeader()})
         return response.data
     }
 
@@ -155,7 +166,7 @@ export default class ApiService{
 
     /* This is used to remove a CATEGORY */
     static async removeCategory(categoryID){
-        const response = await axios.post(`/category/delete/${categoryID}`,null,{headers: this.getHeader()})
+        const response = await axios.delete(`/category/delete/${categoryID}`, {headers: this.getHeader()})
         return response.data
     }
 
@@ -166,6 +177,7 @@ export default class ApiService{
         localStorage.removeItem('token')
         localStorage.removeItem('role')
         localStorage.removeItem('userID')
+        localStorage.removeItem('expTime');
     }
 
     static isAuthenticated() {

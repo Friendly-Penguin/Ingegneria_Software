@@ -3,6 +3,7 @@ package com.project.web.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,15 +27,18 @@ public class User implements UserDetails{
     private Long id;
 
     @NotBlank(message = "Email is required")
+    @Size(max = 100, message = "Max 100 characters")
     private String email;
 
     @NotBlank(message = "Password is required")
     private String password;
 
     @NotBlank(message = "Name is required")
+    @Size(max = 100, message = "Max 100 characters")
     private String name;
 
     @NotBlank(message = "Role is required")
+    @Size(max = 50, message = "Max 50 characters")
     private String role;
 
     @Column(name = "last_login")

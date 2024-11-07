@@ -7,7 +7,7 @@ import { FaAddressCard } from "react-icons/fa";
 import './NewAdmin.css';
 
 function NewAdmin(){
-
+    document.title = "Aggiungi Admin";
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -103,12 +103,13 @@ function NewAdmin(){
 
 
         <div className="login-container-admin">
+            <div className="testataAD">
+                 <h1 className="titolo">Nuovo ADMIN</h1>
+             </div>
         <div className="wrapper-admin">
         
         <form onSubmit={handleSubmit}>
-             <div className="testata">
-                 <h1 className="H1_title">Nuovo ADMIN</h1>
-             </div>
+             
              <div className="input-box-admin">
              <input
                  type="text"

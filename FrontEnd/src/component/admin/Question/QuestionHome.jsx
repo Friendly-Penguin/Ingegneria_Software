@@ -10,7 +10,7 @@ import './QuestionHome.css';
 
 
 function ViewQuest(){
-
+    document.title = "Sezione Domande";
     const [questions, setQuestions] = useState([]); // Stato per le domande e categorie
     const [expandedCategory, setExpandedCategory] = useState(null); // Stato per gestire l'espansione dei menu a tendina
     const [loading, setLoading] = useState(true);
@@ -140,7 +140,7 @@ function ViewQuest(){
                                         <Link className="Link Update" to={`/questionUpdate/${question.id}`}>
                                             <TiPencil className="icon-Update" />Aggiorna
                                         </Link>
-                                        <button href="#" className="buttonDelete" onClick={(event) => handleDelete(question.id, event)}>
+                                        <button className="buttonDelete" onClick={(event) => handleDelete(question.id, event)}>
                                             <RxCross2 className="icon-Delete"/>
                                             <h1>Elimina</h1>
                                         </button>

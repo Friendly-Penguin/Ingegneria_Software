@@ -6,6 +6,7 @@ import { RiAdminFill } from "react-icons/ri";
 import './UserHome.css';
 
 function UserHome() {
+    document.title = "Sezione Utenti";
     const [loadingUser, setLoadingUser] = useState(true);
     const [user, setUser] = useState({});
     const [errorMessage, setErrorMessage] = useState(null);

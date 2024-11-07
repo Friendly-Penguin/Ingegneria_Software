@@ -144,7 +144,7 @@ public class QuestionService implements IQuestionService {
             QuestionDTO questionDTO = Utils.mapQuestionEntityToQuestionDTO(question);
 
             response.setStatusCode(200);
-            response.setMessage("successfull");
+            response.setMessage("Success");
             response.setQuestion(questionDTO);
 
         }catch (CustomExcept ex){

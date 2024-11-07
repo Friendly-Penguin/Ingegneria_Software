@@ -47,7 +47,7 @@ function LoginPage(){
         }
     };
 
-
+    document.title = "Login";
 
     return(
 

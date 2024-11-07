@@ -88,7 +88,7 @@ public class UserService implements IUserService {
             response.setRole(user.getRole());
             response.setUserID(user.getId());
             response.setExpirationTime("1 Hour");
-            response.setMessage("successfull");
+            response.setMessage("Success");
 
         }catch (CustomExcept ex){
 
@@ -135,7 +135,7 @@ public class UserService implements IUserService {
             userRep.findById(Long.valueOf(userID)).orElseThrow(() -> new CustomExcept("User not Found"));
             userRep.deleteById(Long.valueOf(userID));
             response.setStatusCode(200);
-            response.setMessage("successfull");
+            response.setMessage("Success");
 
 
 
@@ -180,16 +180,16 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public Response getMyInfo(String email) {
+    public Response getTicketCount(Long userID){
 
         Response response = new Response();
 
         try{
-            User user = userRep.findByEmail(email).orElseThrow(() -> new CustomExcept("User not Found"));
-            UserDTO userDTO = Utils.mapUserEntityToUserDTO(user);
+
+            Long count = userRep.countUnansweredTickets(userID);
             response.setStatusCode(200);
-            response.setMessage("successfull");
-            response.setUser(userDTO);
+            response.setMessage("Success");
+            response.setTicketCount(count);
 
         }catch (CustomExcept ex){
 
@@ -198,7 +198,7 @@ public class UserService implements IUserService {
         }catch (Exception e){
 
             response.setStatusCode(500);
-            response.setMessage("Error in User info retriving: " + e.getMessage());
+            response.setMessage("Error in User ticketCount retriving: " + e.getMessage());
         }
 
 

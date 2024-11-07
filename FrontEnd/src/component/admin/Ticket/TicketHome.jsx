@@ -3,13 +3,14 @@ import { useState, useEffect, useCallback } from "react";
 import { Link } from 'react-router-dom';
 import ApiService from "../../../service/ApiService";
 import { TiPencil } from "react-icons/ti";
+import { RxCross2 } from "react-icons/rx";
 import './TicketHome.css';
 
 
 
 
 function TicketHome() {
-    
+    document.title = "Sezione Ticket";
     const [ticketsNoAnsw, setTicketsNoAnsw] = useState([]);
     const [tickets, setTickets] = useState([]);
     const [expandedCategory, setExpandedCategory] = useState(null);
@@ -120,6 +121,32 @@ function TicketHome() {
         setSelectedTipologia(selectedTipologia === tipologia ? null : tipologia);
     };
 
+     // Logica per eliminare l'elemento
+     const handleDelete = async(id,event) => {
+        event.preventDefault(); 
+        
+        const confirmDelete = window.confirm("Sei sicuro di voler eliminare questo ticket?");
+        try{
+
+            const response = await ApiService.deleteTicket(id);
+
+            if(confirmDelete){
+            
+            }
+            if(response.message === "Success"){
+                
+                window.alert("Ticket eliminato correttamente!")
+                fetchTickets();
+            
+            }else{
+                console.log("Errore nella cancellazione!")
+            }
+        
+        }catch(error){
+            console.error("Error updating ticket:", error.message);
+        }
+    };
+
     if (loadingTicket || loadingCat || loadingTicketNoAnsw) {
         return <p className="categories-Loading">Caricamento informazioni...</p>; // Mostra il messaggio di caricamento
     }
@@ -170,18 +197,26 @@ function TicketHome() {
                             <p>Nessun ticket aperto presente</p>
                         )}
                     </div>
-                    {expandedCategory && (
+                    {expandedCategory && ticketsNoAnsw[expandedCategory] && (
                         <div className="questions-wrapper-admin">
                             <h2 style={{ marginBottom: '10px' }}>Domande per la categoria: {expandedCategory}</h2>
                             {ticketsNoAnsw[expandedCategory].map((ticket) => (
-                                <div className="question-div" key={ticket.id} style={{ marginBottom: '20px' }}>
-                                    <div className="question-div-info1">
-                                        <h2>• {ticket.title}</h2>
-                                        <Link className="LinkT" to={`/ticketUpdate/${ticket.id}`}>
-                                            <TiPencil className="icon-Update" />Aggiorna
-                                        </Link>
+                                <div className="question-div" key={ticket.id} style={{ marginBottom: '10px' }}>
+                                    <div className="question-div-info">
+                                        <div className="question-div-info1">
+                                            <h2>• {ticket.title}</h2>
+                                        </div>
+                                        <div className="iconDiv">
+                                            <Link className="LinkT pencil" to={`/ticketUpdate/${ticket.id}`}>
+                                                <TiPencil className="icon-Update" />Aggiorna
+                                            </Link>
+                                            <button className="buttonDelete" onClick={(event) => handleDelete(ticket.id, event)}>
+                                                <RxCross2 className="icon-Delete"/>
+                                                <h1>Elimina</h1>
+                                            </button>
+                                        </div>
                                     </div>
-                                    <hr style={{ border: '1px solid #ccc', margin: '10px 0' }} />
+                                <hr style={{ border: '1px solid #ccc', margin: '10px 0' }} />
                                 </div>
                             ))}
                         </div>
@@ -207,7 +242,7 @@ function TicketHome() {
                             <p>Nessun ticket chiuso presente</p>
                         )}
                     </div>
-                    {expandedCategory && (
+                    {expandedCategory && tickets[expandedCategory] && (
                         <div className="questions-wrapper-admin">
                             <h2 style={{ marginBottom: '10px' }}>Domande per la categoria: {expandedCategory}</h2>
                             {tickets[expandedCategory].map((ticket) => (

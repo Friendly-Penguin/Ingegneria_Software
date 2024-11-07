@@ -30,6 +30,8 @@ import ViewCat from './component/admin/Category/ViewCat';
   //GESTIONE UTENTI
 import UserHome from './component/admin/User/UserHome';
 
+  //GESTIONE SCADENZA TOKEN
+import TokenExpirationWarning from './Token/TokenExpiration';
 
 
 function App() {
@@ -41,6 +43,9 @@ function App() {
     
     <div className="App">
       
+      {/* Mostra il TokenExpirationWarning su tutte le pagine tranne /login e /register */}
+      {location.pathname !== '/login' && location.pathname !== '/register' && <TokenExpirationWarning />}
+
       {/* Mostra la Navbar solo se il percorso non è "/login" o "/register" */}
       {location.pathname !== '/login' && location.pathname !== '/register'  && <Navbar />}
 

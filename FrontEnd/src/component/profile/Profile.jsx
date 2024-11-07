@@ -4,6 +4,7 @@ import "./Profile.css";
 import { IoIosArrowDown } from "react-icons/io";
 
 
+
 function Profile() {
     const [profileInfo, setProfileInfo] = useState(null);  // Stato per le informazioni del profilo
     const [answeredTickets, setAnsweredTicket] = useState([]);  // Stato per domande con risposta
@@ -59,13 +60,12 @@ function Profile() {
         setExpandedQuestion(prevId => (prevId === questionId ? null : questionId));  // Se la domanda è già espansa, la collassa, altrimenti la espande
     };
 
-
+    document.title = "Profilo";
 
 
     return (
 
-        <div className="contenitore">
-
+        <div className="contenitoreProfilo">
 
             {/* Mostra altre informazioni del profilo */}
             <h1 className="infoTitle">Infomazioni Account</h1>

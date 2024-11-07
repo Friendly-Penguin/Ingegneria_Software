@@ -15,6 +15,7 @@ public class Response {
     private String role;
     private Long userID;
     private String expirationTime;
+    private Long ticketCount;
 
     private UserDTO user;
     private List<UserDTO> userDTOList;

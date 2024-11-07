@@ -15,4 +15,6 @@ public interface ITicketService {
     Response updateTicket(Long ticketID, String answer, Long Category);
 
     Response getTicketByID(Long ticketID);
+
+    Response deleteTicket(Long ticketID);
 }

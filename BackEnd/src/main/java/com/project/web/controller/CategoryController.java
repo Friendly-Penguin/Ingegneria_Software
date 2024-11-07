@@ -19,9 +19,6 @@ public class CategoryController {
     @Autowired
     private ICategoryService categoryService;
 
-    @Autowired
-    private CategoryRepo categoryRepo;
-
 
     /* PER AGGIUNGERE UNA NUOVA CATEGORIA */
     @PostMapping("/add")
@@ -50,10 +47,9 @@ public class CategoryController {
     }
 
     /* PER CANCELLARE UNA CATEGORIA */
-    @PostMapping("/delete/{categoryID}")
+    @DeleteMapping("/delete/{categoryID}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Response> deleteCategory(@PathVariable Long categoryID){
-
         Response response =  categoryService.deleteCategory(categoryID);
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }

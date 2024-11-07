@@ -1,32 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCallback } from 'react';
 import ApiService from '../../service/ApiService';
 import "./HomePage.css";
 
 function HomePage() {
+    document.title = "FAQ";
     const [questions, setQuestions] = useState([]); // Stato per le domande e categorie
     const [expandedCategory, setExpandedCategory] = useState(null); // Stato per gestire l'espansione dei menu a tendina
     const [searchTerm, setSearchTerm] = useState(""); // Stato per il termine di ricerca
+    const [loading, setLoading] = useState(true); // Stato per il caricamento dei dati
     const isAuthenticated = ApiService.isAuthenticated(); // Controllo se l'utente è autenticato
+    const [ticketCount , setTicketCount] = useState("");
     const navigate = useNavigate();
 
     // Funzione per caricare le categorie e le domande dal database
-    const fetchQuestionsAndCategories = async () => {
+    
+    const fetchQuestionsAndCategories = useCallback(async () => {
         try {
-            // Chiamata API per ottenere tutte le categorie
+            if (isAuthenticated) {
+                const response = await ApiService.getTicketCount(localStorage.getItem("userID"));
+                setTicketCount(response.ticketCount);
+            }
+    
             const categoryResponse = await ApiService.getAllCategories();
             const allCategories = categoryResponse.categoryDTOList;
-
+    
             // Crea una mappa per associare ID categoria al tipo
             const categoryMap = allCategories.reduce((acc, category) => {
                 acc[category.id] = category.type;
                 return acc;
             }, {});
-
-            // Chiamata API per ottenere tutte le domande con le relative risposte
+    
             const questionResponse = await ApiService.getAllQuestion();
             const allQuestions = questionResponse.questionDTOList;
-
+    
             // Raggruppa le domande per tipo di categoria
             const categorizedQuestions = allQuestions.reduce((acc, question) => {
                 const categoryType = categoryMap[question.category]; // Ottieni il tipo usando la mappa
@@ -36,17 +44,22 @@ function HomePage() {
                 acc[categoryType].push(question);
                 return acc;
             }, {});
-
+    
             setQuestions(categorizedQuestions); // Imposta le domande raggruppate per tipo di categoria
         } catch (error) {
             console.error("Error fetching questions or categories:", error.message);
+        } finally {
+            setLoading(false); // Termina il caricamento
         }
-    };
+    }, [isAuthenticated]);  // Usa useCallback per memorizzare la funzione
+
+   
 
     useEffect(() => {
         fetchQuestionsAndCategories();
-    }, []);
+    }, [fetchQuestionsAndCategories]);
 
+   
     // Funzione per gestire l'espansione delle categorie
     const toggleCategory = (category) => {
         setExpandedCategory(expandedCategory === category ? null : category); // Espande/chiude il menu a tendina
@@ -69,16 +82,37 @@ function HomePage() {
         return acc;
     }, {});
 
+    // Funzione per evidenziare il termine di ricerca
+    const highlightText = (text) => {
+        if (!searchTerm) return text; // Se non c'è un termine di ricerca, restituisci il testo originale
+        const regex = new RegExp(`(${searchTerm})`, 'gi'); // Crea un'espressione regolare per il termine di ricerca
+        const parts = text.split(regex); // Dividi il testo in base al termine di ricerca
+        return parts.map((part, index) => 
+            part.toLowerCase() === searchTerm.toLowerCase() ? (
+                <span key={index} className="highlight">{part}</span> // Avvolgi il termine di ricerca in un <span>
+            ) : part
+        );
+    };
+
+    // Funzione per aprire un nuovo ticket
     const handleAddNewTicket = () => {
         if (!isAuthenticated) {
             const confirm = window.confirm("Per aprire un ticket, esegui il login");
             if (confirm) {
                 navigate('/login');
             }
-        } else {
-            navigate('/ticket');
-        }
+        } else if(ticketCount.toString() === "3") {
+            window.alert("Hai aperto il numero massimo di Ticket ( 3 ). \nAspetta che un ADMIN ti risponda prima di aprirne altri!")
+            return;
+        
+            }else{
+                navigate('/ticket');
+            }
     };
+
+    if (loading) {
+        return <p className="loading-message">Caricamento in corso...</p>; // Messaggio di caricamento
+    }
 
     return (
         <div className="home">
@@ -107,29 +141,36 @@ function HomePage() {
                 <button onClick={handleAddNewTicket} className="buttonTicket">Apri un ticket</button>
             </div>
 
+            <div className="titolo-Domande">
+                <h1>Domande presenti:</h1>
+            </div>
             {/* Visualizzazione delle categorie */}
-            <div className="contenitore">
+            <div className="contenitoreHome">
                 <div className="categories-wrapper">
-                    {Object.keys(filteredQuestions).map((category) => (
-                        <div
-                            key={category}
-                            onClick={() => toggleCategory(category)}
-                            className={`categories-obj ${expandedCategory === category ? 'active' : ''}`}
-                        >
-                            <span>{category}</span>
-                        </div>
-                    ))}
+                    {Object.keys(filteredQuestions).length > 0 ? (
+                        Object.keys(filteredQuestions).map((category) => (
+                            <div
+                                key={category}
+                                onClick={() => toggleCategory(category)}
+                                className={`categories-obj ${expandedCategory === category ? 'active' : ''}`}
+                            >
+                                <span>{category}</span>
+                            </div>
+                        ))
+                    ) : (
+                        <span>Nessun Risultato</span>
+                    )}
                 </div>
 
                 {/* Visualizzazione delle domande della categoria espansa */}
-                {expandedCategory && (
+                {expandedCategory && filteredQuestions[expandedCategory] && (
                     <div className="questions-wrapper">
                         <h2 style={{ marginBottom: '10px' }}>Domande per la categoria: {expandedCategory}</h2>
                         <ul>
                             {filteredQuestions[expandedCategory].map((question) => (
                                 <li key={question.id}>
-                                    <strong>{question.title}</strong>
-                                    <p>{question.content}</p>
+                                    <strong>{highlightText(question.title)}</strong>
+                                    <p>{highlightText(question.content)}</p>
                                     <hr style={{ border: '1px solid #ccc', margin: '10px 0' }} />
                                 </li>
                             ))}

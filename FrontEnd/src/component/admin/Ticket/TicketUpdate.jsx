@@ -4,6 +4,7 @@ import ApiService from "../../../service/ApiService";
 import './TicketUpdate.css';
 
 function TicketUpdate() {
+    document.title = "Aggiorna Ticket";
     const { id } = useParams();
     const navigate = useNavigate();
     
@@ -42,6 +43,28 @@ function TicketUpdate() {
         fetchTicketAndCategories();
     }, [fetchTicketAndCategories]);
 
+    // Funzione di sanificazione dell'input
+    const sanitizeInput = (input) => {
+        return input.replace(/[^a-zA-Z0-9\s.,!'/?àèìòùéÀÈÌÒÙÉ]/g, "");
+    };
+
+    // Funzione di sanificazione dell'input
+    const sanitizeInput2 = (input) => {
+        return input.replace(/[^a-zA-Z\s]/g, "");
+    };
+
+    // Aggiorna newAnswer con testo sanificato
+    const handleAnswerChange = (e) => {
+        const sanitizedAnswer = sanitizeInput(e.target.value);
+        setNewAnswer(sanitizedAnswer);
+    };
+
+    // Aggiorna newCategory con testo sanificato
+    const handleCategoryChange = (e) => {
+        const sanitizedCategory = sanitizeInput2(e.target.value.toUpperCase());
+        setNewCategory(sanitizedCategory);
+    };
+
 
     // Gestisce l'invio del form del ticket
     const handleSubmit = async (e) => {
@@ -52,7 +75,7 @@ function TicketUpdate() {
         const risposta = window.confirm("Sei sicuro di voler procedere?");
 
         if (risposta) {
-            
+
             // Controllo se non è stata scritta alcuna risposta
             if (!newAnswer) {
                 setErrorMessage("Errore: non è stata scritta alcuna risposta!");
@@ -169,7 +192,7 @@ function TicketUpdate() {
                                 <textarea className="textAreaT" 
                                     type="text" 
                                     value={newAnswer}
-                                    onChange={(e) => setNewAnswer(e.target.value)} 
+                                    onChange={handleAnswerChange} 
                                     placeholder="Nuova risposta"
                                     maxLength="500" 
                                 />
@@ -232,7 +255,7 @@ function TicketUpdate() {
                                     <input 
                                         type="text" 
                                         value={newCategory} 
-                                        onChange={(e) => setNewCategory(e.target.value.toUpperCase())} 
+                                        onChange={handleCategoryChange} 
                                         placeholder="Nome nuova categoria"
                                         maxLength="25"
                                         required 

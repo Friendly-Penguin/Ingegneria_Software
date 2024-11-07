@@ -1,4 +1,10 @@
 /* STYLING FOR HOMEPAGE */
+
+.highlight {
+  background-color: yellow; 
+  font-weight: bold;
+}
+
 .content{
     background-color: #fafafa;
     height: 75%;
@@ -62,10 +68,23 @@
     color: var(--link);
   }
   
-  .contenitore{
+  .titolo-Domande{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .titolo-Domande h1{
+    font-size: 25px;
+  }
+
+  .contenitoreHome{
     display: flex;
     flex-direction: column;
     height: auto;
+    margin-top: 10px;
   }
   
   .categories-wrapper{
@@ -73,7 +92,6 @@
     gap: 10px;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
     flex-wrap: wrap;
   }
   

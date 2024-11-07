@@ -6,10 +6,14 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+/*
+* Unfortunately, Hibernate is not fully compatible with the settings for constraints.
+* Therefore, we should manually modify the table and add the desired ON DELETE and ON UPDATE options.
+*/
+
 @Data
 @Entity
 @Table(name = "question")
-
 public class Question {
 
     @Id
@@ -19,7 +23,8 @@ public class Question {
     @NotBlank(message = "Title required")
     @Size(max = 300, message = "Max 300 characters")
     private String title;
-    @Size(max = 500, message = "Max 300 characters")
+
+    @Size(max = 500, message = "Max 500 characters")
     private String content;
 
 

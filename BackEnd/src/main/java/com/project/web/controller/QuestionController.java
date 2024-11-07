@@ -18,8 +18,8 @@ public class QuestionController {
     private IQuestionService questionService;
 
 
-    // Aggiorna una domanda con una risposta (solo admin)
-    @PostMapping("/update/{questionID}")
+    // Aggiorna una domanda con una risposta
+    @PutMapping("/update/{questionID}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Response> updateQuestion(@PathVariable Long questionID,
                                                    @RequestParam(value = "title", required = false)String title,
@@ -90,21 +90,23 @@ public class QuestionController {
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
+
+    // Recupera tutte le domande
     @GetMapping("/all")
     public ResponseEntity<Response> getAllAnsweredQuestions(){
         Response response = questionService.getAllQuestions();
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
-
-    @GetMapping("/delete/{questionId}")
+    // Cancella una domanda dato il suo ID
+    @DeleteMapping("/delete/{questionId}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Response> deleteQuestion(@PathVariable Long questionId){
         Response response = questionService.deleteQuestion(questionId);
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
-
+    //Recupera una domanda in particolare tramite il suo ID
     @GetMapping("/retrive-{questionID}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Response> getQuestion(@PathVariable Long questionID) {

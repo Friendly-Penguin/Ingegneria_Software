@@ -5,7 +5,7 @@ import com.project.web.dto.Response;
 import com.project.web.model.User;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 public interface IUserService {
 
@@ -19,7 +19,7 @@ public interface IUserService {
 
     Response getUserByID(String userID);
 
-    Response getMyInfo(String email);
+    Response getTicketCount(Long userID);
 
     void updateUserLastLogin(Long userID, LocalDateTime lastLogin);
 

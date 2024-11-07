@@ -5,6 +5,7 @@ import './QuestionUpdate.css';
 
 
 function QuestionUpdate() {
+    document.title = "Modifica Domanda";
     const { id } = useParams();
     const navigate = useNavigate();
     
@@ -43,6 +44,37 @@ function QuestionUpdate() {
     useEffect(() => {
         fetchQuestionAndCategories();
     }, [fetchQuestionAndCategories]);
+
+
+    // Funzione di sanificazione dell'input
+    const sanitizeInput = (input) => {
+        return input.replace(/[^a-zA-Z0-9\s.,!'/?àèìòùéÀÈÌÒÙÉ]/g, "");
+    };
+
+    // Funzione di sanificazione dell'input per CATEGORY
+    const sanitizeInput2 = (input) => {
+        return input.replace(/[^a-zA-Z\s]/g, "");
+    };
+
+    // Aggiorna newTitle con testo sanificato
+    const handleTitleChange = (e) => {
+        const sanitizedAnswer = sanitizeInput(e.target.value);
+        setNewTitle(sanitizedAnswer);
+    };
+
+    // Aggiorna newAnswer con testo sanificato
+    const handleContentChange = (e) => {
+        const sanitizedAnswer = sanitizeInput(e.target.value);
+        setNewAnswer(sanitizedAnswer);
+    };
+
+    // Aggiorna newCategory con testo sanificato
+    const handleCategoryChange = (e) => {
+        const sanitizedCategory = sanitizeInput2(e.target.value.toUpperCase());
+        setNewCategory(sanitizedCategory);
+    };
+
+
 
 
     // Gestisce l'invio del form del ticket
@@ -191,7 +223,7 @@ function QuestionUpdate() {
                                 <textarea className="textArea" 
                                     type="text" 
                                     value={newTitle}
-                                    onChange={(e) => setNewTitle(e.target.value)} 
+                                    onChange={handleTitleChange} 
                                     placeholder="Nuovo titolo"
                                     maxLength="300" 
                                     disabled={isChecked}
@@ -225,9 +257,9 @@ function QuestionUpdate() {
                                 <textarea className="textArea" 
                                     type="text" 
                                     value={newAnswer}
-                                    onChange={(e) => setNewAnswer(e.target.value)} 
+                                    onChange={handleContentChange} 
                                     placeholder="Nuova risposta"
-                                    maxLength="300" 
+                                    maxLength="500" 
                                     disabled={isCheckedAnswer}
                                 />
                                 <div className="titleCheckBox">
@@ -297,7 +329,7 @@ function QuestionUpdate() {
                                     <input 
                                         type="text" 
                                         value={newCategory} 
-                                        onChange={(e) => setNewCategory(e.target.value.toUpperCase())} 
+                                        onChange={handleCategoryChange} 
                                         placeholder="Nome nuova categoria"
                                         maxLength="25"
                                         required 

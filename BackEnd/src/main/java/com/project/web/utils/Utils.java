@@ -15,19 +15,14 @@ import java.util.stream.Collectors;
 
 public class Utils {
 
-    private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-    private static final SecureRandom SECURE_RANDOM = new SecureRandom();
-
-    public static String generateAlphaNumericString(int length) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            int randomChar = SECURE_RANDOM.nextInt(ALPHA_NUMERIC_STRING.length());
-            char randomCharChar = ALPHA_NUMERIC_STRING.charAt(randomChar);
-            stringBuilder.append(randomChar);
-        }
-        return stringBuilder.toString();
-    }
+    /*
+    Maps a database entity to a Data Transfer Object (DTO).
+        *
+        * These functions take an entity retrieved from the database and transforms it into a DTO format,
+        * making it suitable for use in the application's service or API layers. This process abstracts
+        * away database-specific details, ensuring that only relevant, safe, and structured data is
+        * exposed to the end user or client.
+    */
 
 
     public static UserDTO mapUserEntityToUserDTO(User user) {

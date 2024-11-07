@@ -8,12 +8,21 @@
   .login-container-admin{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     height: 550px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .testataAD{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
     width: 100%;
   }
   
   .wrapper-admin{
-    margin-top: 30px;
     width: 420px;
     background: whitesmoke;
     border: 2px solid rgb(24 24 24 / 32%);
@@ -25,18 +34,6 @@
     margin-bottom: 10px;
   }
   
-  .wrapper-admin .testata{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    
-  }
-  
-  .wrapper-admin .testata h1{
-    font-size: 36px;
-    text-align: center;
-    width: 100%;
-  }
 
   
   .wrapper-admin .input-box-admin{

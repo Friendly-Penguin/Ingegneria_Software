@@ -8,7 +8,7 @@ import './AddQuestion.css';
 
 
 function AddQuestion(){
-
+    document.title = "Aggiungi Domanda";
     const navigate = useNavigate();
     
     const [newCategory, setNewCategory] = useState("");
@@ -40,7 +40,33 @@ function AddQuestion(){
         fetchCategories();
     }, []);
    
-    
+    // Funzione di sanificazione dell'input
+    const sanitizeInput = (input) => {
+        return input.replace(/[^a-zA-Z0-9\s.,!'/?àèìòùéÀÈÌÒÙÉ]/g, "");
+    };
+
+    // Funzione di sanificazione dell'input per CATEGORY
+    const sanitizeInput2 = (input) => {
+        return input.replace(/[^a-zA-Z\s]/g, "");
+    };
+
+    // Aggiorna newTitle con testo sanificato
+    const handleTitleChange = (e) => {
+        const sanitizedAnswer = sanitizeInput(e.target.value);
+        setTitle(sanitizedAnswer);
+    };
+
+    // Aggiorna newContent con testo sanificato
+    const handleContentChange = (e) => {
+        const sanitizedAnswer = sanitizeInput(e.target.value);
+        setContent(sanitizedAnswer);
+    };
+
+    // Aggiorna newCategory con testo sanificato
+    const handleCategoryChange = (e) => {
+        const sanitizedCategory = sanitizeInput2(e.target.value.toUpperCase());
+        setNewCategory(sanitizedCategory);
+    };
 
     // Gestisce l'invio del form della domanda
     const handleSubmit = async (e) => {
@@ -155,7 +181,7 @@ function AddQuestion(){
                             <textarea className="textAreaD" 
                                 type="text" 
                                 value={title}
-                                onChange={(e) => setTitle(e.target.value)} 
+                                onChange={handleTitleChange} 
                                 placeholder="Titolo"
                                 maxLength="300" 
                             />
@@ -166,7 +192,7 @@ function AddQuestion(){
                             <textarea className="textAreaD" 
                                 type="text" 
                                 value={content}
-                                onChange={(e) => setContent(e.target.value)} 
+                                onChange={handleContentChange} 
                                 placeholder="Risposta"
                                 maxLength="500" 
                             />
@@ -210,7 +236,7 @@ function AddQuestion(){
                                 <input 
                                     type="text" 
                                     value={newCategory} 
-                                    onChange={(e) => setNewCategory(e.target.value.toUpperCase())} 
+                                    onChange={handleCategoryChange} 
                                     placeholder="Nome nuova categoria"
                                     maxLength="25"
                                     required 

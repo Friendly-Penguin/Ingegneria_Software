@@ -19,6 +19,26 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * This class configures Spring Security for the application by defining security filters, authentication provider,
+ * password encoder, and session management settings. The main components are:
+ *
+ * 1. **Security Filter Chain**: Configures the security filters for incoming HTTP requests. It disables CSRF, enables CORS,
+ *    and specifies URL patterns that are permitted to be accessed without authentication. All other requests require authentication.
+ *    The filter chain also ensures that stateless sessions are used (no session persistence between requests), and adds a JWT-based
+ *    authentication filter before the default username-password filter.
+ *
+ * 2. **Authentication Provider**: Uses a custom `UserDetailsService` (customUserDetailsService) and a BCrypt password encoder
+ *    to authenticate users based on their credentials.
+ *
+ * 3. **Password Encoder**: Configures BCrypt as the password encoder for encoding and verifying passwords.
+ *
+ * 4. **Authentication Manager**: Defines a Spring `AuthenticationManager` bean that integrates with Spring Security's
+ *    authentication configuration.
+ */
+
+
+
 @Configuration
 @EnableMethodSecurity
 @EnableWebSecurity
