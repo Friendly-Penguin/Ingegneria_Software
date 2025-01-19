@@ -1,5 +1,5 @@
 # Ing_Soft  
-Progetto per Ingegneria del Software 2024-25  
+Progetto per Ingegneria del Software 2023-24
 
 Il progetto prevede la realizzazione di un sistema **FAQ**.  
 
