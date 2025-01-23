@@ -20,6 +20,8 @@ function RegisterPage(){
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [passwordsMatch, setPasswordsMatch] = useState(false);
+    const [nameWrote, setNameWrote] = useState(false);
+    const [emailWrote, setEmailWrote] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -29,12 +31,16 @@ function RegisterPage(){
             const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]*$/; // Consenti lettere (anche con accenti) e spazi
             if (regex.test(value)) {
                 setFormData({ ...formData, [name]: value });
+                setNameWrote(value.trim() !== ''); // Controlla se il campo nome è stato scritto
             }
+        } else if (name === "email") {
+            setFormData({ ...formData, [name]: value });
+            setEmailWrote(value.trim() !== ''); // Controlla se il campo email è stato scritto
         } else {
-            // Per altri campi, imposta il valore normalmente
             setFormData({ ...formData, [name]: value });
         }
     };
+
 
 
     
@@ -90,6 +96,7 @@ function RegisterPage(){
     };
 
     document.title = "Registrati";
+    const isButtonDisabled = nameWrote && emailWrote && passwordsMatch;
 
     return(
 
@@ -146,7 +153,7 @@ function RegisterPage(){
              <FaKey className="icon" />
              </div>
              {/* Disabilita il bottone se le password non coincidono */}
-             <button type="submit" disabled={!passwordsMatch}>
+             <button type="submit" disabled={!isButtonDisabled}>
                         Registrati
                     </button>
          </form>

@@ -106,11 +106,6 @@ function AddQuestion(){
             formData.append('userID', localStorage.getItem("userID"))
             formData.append('content', content);
             
-            
-            console.log("Sono fuori dalle condizioni\nCampi:\nTitolo: " + formData.get('title') + " Content: " + formData.get('content') + " Cat: " + formData.get('category'));
-            
-            
-
             try {
                 const response = await ApiService.addQuestion(formData);
 

@@ -59,12 +59,11 @@ function UserHome() {
 
     // Funzione per mostrare gli utenti di una categoria
     const handleCategoryClick = (category) => {
-        console.log("Cliccato: " + category)
         setSelectedTipo(selectedTipo === category ? null : category); // Toggle the active category
     };
 
     const formatLastLoginDate = (lastLoginDate) => {
-        console.log("Data: "+lastLoginDate)
+        if(lastLoginDate !== undefined){
         // Converti il valore LocalDateTime in oggetto Date
         const lastLogin = new Date(lastLoginDate);
         const now = new Date();
@@ -79,6 +78,9 @@ function UserHome() {
         } else {
             return `${daysDiff} giorni fa`; // Altrimenti, mostra i giorni trascorsi
         }
+    }
+    else
+        return "Nessun accesso";
     };
 
     if (loadingUser) {

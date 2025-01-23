@@ -127,7 +127,6 @@ function QuestionUpdate() {
             formData.append('category', question.category)
         
         }else if(category !== ""){
-                console.log("CAT-IF-ELSE-IF")
             if(category === String(question.category)){
                 console.log("Errore categoria");
                 setErrorMessage("Errore campo categoria: stessa categoria di partenza! Usa la checkbox");
@@ -143,8 +142,6 @@ function QuestionUpdate() {
             setTimeout(() => setErrorMessage(""), 3000);
             return;
         }
-        
-        console.log("Titolo: " + formData.get('title') + " Risposta: " + formData.get('answer') + " Categoria: " + formData.get('category'));
 
         try {
             const response = await ApiService.updateQuestion(id, formData);

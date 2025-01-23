@@ -69,8 +69,6 @@ function TicketUpdate() {
     // Gestisce l'invio del form del ticket
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        console.log("Categoria: " + category);
         
         const risposta = window.confirm("Sei sicuro di voler procedere?");
 
@@ -104,9 +102,6 @@ function TicketUpdate() {
                 }
                 
             }
-
-            // Passa oltre i controlli, quindi imposta la categoria e crea il formData
-            console.log("Sono fuori dalle condizioni");
 
             
             const formData1 = new FormData();
