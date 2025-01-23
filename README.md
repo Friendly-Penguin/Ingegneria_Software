@@ -87,4 +87,8 @@ Le seguenti dipendenze sono utilizzate nel progetto:
 ---
 
 ### Nota per il Frontend:
-L'indirizzo del **proxy** per le chiamate al server può essere trovato nel file `package.json` all'interno della sezione `"proxy"`.
+	1. L'indirizzo del **proxy** per le chiamate al server può essere trovato nel file `package.json` all'interno della sezione `"proxy"`.
+	2. Le credenziali per la parte admin sono: 
+		Email: admin@admin.it
+		Password: 123456
+

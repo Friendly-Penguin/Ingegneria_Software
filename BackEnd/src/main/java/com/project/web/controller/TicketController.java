@@ -107,7 +107,7 @@ public class TicketController {
     }
 
     /* Usato per recuperare tutti i TICKET senza Risposta */
-    @PostMapping("/getAllNotAnswered")
+    @GetMapping("/getAllNotAnswered")
     @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Response> getAllNotAnsweredTicket(){
         Response response = ticketService.getAllNotAnsweredTicket();

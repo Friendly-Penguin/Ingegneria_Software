@@ -20,6 +20,9 @@ function NewAdmin(){
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [passwordsMatch, setPasswordsMatch] = useState(false);
+    const [nameWrote, setNameWrote] = useState(false);
+    const [emailWrote, setEmailWrote] = useState(false);
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -29,9 +32,12 @@ function NewAdmin(){
             const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]*$/; // Consenti lettere (anche con accenti) e spazi
             if (regex.test(value)) {
                 setFormData({ ...formData, [name]: value });
+                setNameWrote(value.trim() !== ''); // Controlla se il campo nome è stato scritto
             }
+        } else if (name === "email") {
+            setFormData({ ...formData, [name]: value });
+            setEmailWrote(value.trim() !== ''); // Controlla se il campo email è stato scritto
         } else {
-            // Per altri campi, imposta il valore normalmente
             setFormData({ ...formData, [name]: value });
         }
     };
@@ -48,7 +54,10 @@ function NewAdmin(){
 
     const handleConfirmPasswordChange = (e) => {
         const { value } = e.target;
-        if (formData.password !== value) {
+        if (value === ''){
+            setPasswordsMatch(false);
+        }
+        else if (formData.password !== value) {
             setPasswordsMatch(false);
             setErrorMessage("Le password non coincidono!");
         } else {
@@ -97,7 +106,7 @@ function NewAdmin(){
     };
 
 
-
+    const isButtonDisabled = nameWrote && emailWrote && passwordsMatch;
 
     return(
 
@@ -154,7 +163,7 @@ function NewAdmin(){
              <FaKey className="icon-admin" />
              </div>
              {/* Disabilita il bottone se le password non coincidono */}
-             <button type="submit" disabled={!passwordsMatch}>
+             <button type="submit" disabled={!isButtonDisabled}>
                     Conferma
                     </button>
          </form>
